@@ -1,0 +1,12 @@
+.idea/
+.DS_Store
+keycloak-java
+keycloak-17.0.0
+postgres
+lib
+Error.txt
+Successful.txt
+node_modules/
+credential.json
+users.json
+docker-data/

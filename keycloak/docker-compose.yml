@@ -1,0 +1,43 @@
+version: '2.4'
+
+volumes:
+  postgres_data:
+    driver: local
+services:
+  postgres:
+    container_name: Keycloak17_Postgres
+    image: postgres:latest
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: keycloak_db
+      POSTGRES_PASSWORD: DevCyballOperator10032022
+      POSTGRES_USER: keycloak
+    ports:
+      - 127.0.0.1:5432:5432
+  keycloak:
+    platform: linux/amd64
+    volumes:
+      - ./providers/:/opt/jboss/keycloak/providers:rw
+      - ./themes/auth-v3:/opt/jboss/keycloak/themes/auth-v3:rw
+    depends_on:
+      - postgres
+    container_name: Keycloak17_Server
+    image: quay.io/keycloak/keycloak:17.0.0-legacy
+    environment:
+      DB_VENDOR: POSTGRES
+      DB_PORT: 5432
+      DB_ADDR: postgres
+      DB_DATABASE: keycloak_db
+      DB_USER: keycloak
+      DB_SCHEMA: public
+      DB_PASSWORD: AppChainOperator@88888
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: Pa55w0rd
+      KEYCLOAK_HOSTNAME: auth.appchain.cloud
+      KEYCLOAK_ALWAYS_HTTPS: "true"
+      KEYCLOAK_WELCOME_THEME: "auth-v3"
+      # Uncomment the line below if you want to specify JDBC parameters. The parameter below is just an example, and it shouldn't be used in production without knowledge. It is>
+      #JDBC_PARAMS: "ssl=true"
+    ports:
+      - 127.0.0.1:8080:8080
