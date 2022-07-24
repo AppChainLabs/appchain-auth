@@ -36,7 +36,7 @@ services:
       KEYCLOAK_PASSWORD: Pa55w0rd
       KEYCLOAK_HOSTNAME: auth.appchain.cloud
       KEYCLOAK_ALWAYS_HTTPS: "true"
-      KEYCLOAK_WELCOME_THEME: "auth-v3"
+#      KEYCLOAK_WELCOME_THEME: "auth-v3"
       PROXY_ADDRESS_FORWARDING: "true"
       # Uncomment the line below if you want to specify JDBC parameters. The parameter below is just an example, and it shouldn't be used in production without knowledge. It is>
       #JDBC_PARAMS: "ssl=true"
