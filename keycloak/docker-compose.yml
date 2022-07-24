@@ -19,7 +19,7 @@ services:
     platform: linux/amd64
     volumes:
       - ./providers/:/opt/jboss/keycloak/providers:rw
-      - ./themes/:/opt/jboss/keycloak/themes/:rw
+#      - ./themes/:/opt/jboss/keycloak/themes/:rw
     depends_on:
       - postgres
     container_name: Keycloak17_Server
