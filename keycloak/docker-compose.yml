@@ -11,7 +11,7 @@ services:
       - ./postgres:/var/lib/postgresql/data
     environment:
       POSTGRES_DB: keycloak_db
-      POSTGRES_PASSWORD: DevCyballOperator10032022
+      POSTGRES_PASSWORD: AppChainOperator@88888
       POSTGRES_USER: keycloak
     ports:
       - 127.0.0.1:5432:5432
@@ -37,6 +37,7 @@ services:
       KEYCLOAK_HOSTNAME: auth.appchain.cloud
       KEYCLOAK_ALWAYS_HTTPS: "true"
       KEYCLOAK_WELCOME_THEME: "auth-v3"
+      PROXY_ADDRESS_FORWARDING: "true"
       # Uncomment the line below if you want to specify JDBC parameters. The parameter below is just an example, and it shouldn't be used in production without knowledge. It is>
       #JDBC_PARAMS: "ssl=true"
     ports:
